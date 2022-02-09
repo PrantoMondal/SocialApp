@@ -7,12 +7,13 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdkVersion 32
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.prantokm.socialapp"
-        minSdk 21
-        targetSdk 31
+        minSdkVersion 21
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -25,25 +26,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 dependencies {
-
+    //noinspection GradleDependency
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
 
+    //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
+    //noinspection GradleDependency
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
 
     // UI
+    //noinspection GradleDependency
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    //noinspection GradleDependency
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     /* coroutines support for firebase operations */
@@ -56,16 +54,20 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.firebaseui:firebase-ui-firestore:6.4.0'
 
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
 
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     // Testing
+    //noinspection GradleDependency
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
-    androidTestImplementation("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
+    androidTestImplementation ("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //noinspection GradleDependency
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+    implementation 'com.firebaseui:firebase-ui-firestore:7.2.0'
+
 }
